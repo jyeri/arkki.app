@@ -1,0 +1,43 @@
+.HeaderContainer {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    background-color: #5f0c9e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    height: 5rem;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.HeaderContainer__text {
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    font-size: 2em;
+    font-style: normal;
+    color: white;
+}
+
+.HeaderContainer__logo {
+    height: 4.5rem;
+    width: 4.5rem;
+    background-color: none;
+}
+
+.HeaderContainer__dropdown-select {
+    background-color: #5f0c9e;
+    color: white;
+    border: none;
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
