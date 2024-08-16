@@ -1,33 +1,32 @@
-import { Squad } from '../Tools/Interfaces'
-import { useEffect, useState, ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
 
-export const useSquadBuilder = () => {
-    const [selectedOption, setSelectedOption] = useState('SquadBuilder'); // default value
-    const [Squad, setSquad] = useState<Squad>({ attack: 0, mid: 0, def: 0, gk: 1 });
+export const useSquadBuilder = (formation: string) => {
+    type Player = string;
 
-    const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-        setSelectedOption(event.target.value);
-    }
+    const [attack, setAttack] = useState<Player[]>([]);
+    const [mid, setMid] = useState<Player[]>([]);
+    const [def, setDef] = useState<Player[]>([]);
+    const [gk, setGk] = useState<Player[]>([]);
 
     useEffect(() => {
-        // Perform operation based on selectedOption
-        if (selectedOption === '442') {
-            setSquad({ attack: 2, mid: 4, def: 4, gk: 1 });
-            console.log("442 SET");
+        // Logic to set positions based on the selected formation
+        if (formation === "4-4-2") {
+            setAttack(["Player1", "Player2"]);
+            setMid(["Player3", "Player4", "Player5", "Player6"]);
+            setDef(["Player7", "Player8", "Player9", "Player10"]);
+            setGk(["Player11"]);
+        } else if (formation === "4-3-3") {
+            setAttack(["Player1", "Player2", "Player3"]);
+            setMid(["Player4", "Player5", "Player6"]);
+            setDef(["Player7", "Player8", "Player9", "Player10"]);
+            setGk(["Player11"]);
+        } else if (formation === "3-5-2") {
+            setAttack(["Player1", "Player2"]);
+            setMid(["Player3", "Player4", "Player5", "Player6", "Player7"]);
+            setDef(["Player8", "Player9", "Player10"]);
+            setGk(["Player11"]);
         }
-        else if (selectedOption === '352') {
-            setSquad({ attack: 2, mid: 5, def: 3, gk: 1 });
-            console.log("352 SET");
-        }
-        else if (selectedOption === '451') {
-            setSquad({ attack: 1, mid: 5, def: 4, gk: 1 });
-            console.log("451 SET");
-        }
-    }, [selectedOption]);
+    }, [formation]);
 
-    if (Squad.attack + Squad.mid + Squad.def + Squad.gk !== 11) {
-        console.log("Invalid squad");
-    }
-
-    return { Squad, selectedOption, handleSelectChange };
-}
+    return { attack, mid, def, gk };
+};

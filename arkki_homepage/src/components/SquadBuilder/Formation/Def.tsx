@@ -2,16 +2,16 @@ import React from 'react';
 import './Formation.style.scss';
 
 interface DefProps {
-    Def: number;
+    def: string[];
 }
 
-export const Def: React.FC<DefProps> = ({ Def }) => {
-    const DefArray = Array.from({ length: Def }, (_, index) => index);
-
+export const Def: React.FC<DefProps> = ({ def }) => {
     return (
         <div className='Formation__line'>
-            {DefArray.map((_, index) => (
-                <div key={index} style={{ width: '70px', height: '100px', backgroundColor: 'black', margin: '40px' }} />
+            {def.map((player, index) => (
+                <div key={index} style={{ width: '70px', height: '100px', backgroundColor: 'black', margin: '40px' }}>
+                    {player}
+                </div>
             ))}
         </div>
     );

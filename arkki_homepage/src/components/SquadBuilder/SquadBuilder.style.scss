@@ -25,7 +25,19 @@
 /* Follow me for more pens like this! */
 
 /* Tweak to change the look and feel */
-.SBContainer__formation select {
+.SBContainer__formation {
+    position: relative;
+    margin-bottom: 4em;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.SBContainer__dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.SBContainer__dropdown-button {
     color: #5f0c9e;
     background-color: rgb(255, 255, 255);
     border: #5f0c9e 1px solid;
@@ -33,13 +45,39 @@
     font-style: thin;
     font-weight: 300;
     font-family: "Roboto";
-    margin-bottom: 4em;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+
 }
 
-.SBContainer__formation option {
+.SBContainer__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border: #5f0c9e 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.SBContainer__dropdown-item {
     color: #5f0c9e;
     background-color: rgb(255, 255, 255);
     font-style: thin;
     font-weight: 300;
     font-family: "Roboto";
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.SBContainer__dropdown-item:hover {
+    background-color: #f0f0f0;
 }

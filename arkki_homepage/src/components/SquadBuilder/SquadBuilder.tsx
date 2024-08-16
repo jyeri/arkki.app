@@ -6,54 +6,52 @@ import { Mid } from "./Formation/Mid"
 import { Def } from "./Formation/Def"
 import { GK } from "./Formation/GK"
 import { useSquadBuilder } from "./useSquadBuilder.ts"
-import React, {useState} from 'react';
-import {DndContext} from '@dnd-kit/core';
-import {Droppable} from '../DnD/Droppaple.tsx';
-import {Draggable} from '../DnD/Draggable.tsx';
-
+import React, { useState } from 'react';
+import { DndContext } from '@dnd-kit/core';
+import { Droppable } from '../DnD/Droppaple.tsx';
+import { Draggable } from '../DnD/Draggable.tsx';
 
 export const SquadBuilder = () => {
-    const { Squad, selectedOption, handleSelectChange } = useSquadBuilder();
-    const containers = ['A', 'B', 'C'];
-    const [parent, setParent] = useState(null);
-    const draggableMarkup = (
-    <Draggable id="draggable">Drag me</Draggable>
-    );
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("Select Formation");
+    const { attack, mid, def, gk } = useSquadBuilder(selectedOption);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleOptionClick = (option: string) => {
+        setSelectedOption(option);
+        setIsDropdownOpen(false);
+    };
 
     return (
-        <div className="SBContainer">
-            <div className="SBContainer__title">
-                <h1 className="SBContainer__title-text">Squad Builder</h1>
+        <div className="SBContainer__formation">
+            <div className="SBContainer__dropdown">
+                <button className="SBContainer__dropdown-button" onClick={toggleDropdown}>
+                    {selectedOption}
+                </button>
+                {isDropdownOpen && (
+                    <ul className="SBContainer__dropdown-menu">
+                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick("4-4-2")}>
+                            4-4-2
+                        </li>
+                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick("4-3-3")}>
+                            4-3-3
+                        </li>
+                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick("3-5-2")}>
+                            3-5-2
+                        </li>
+                    </ul>
+                )}
             </div>
-            <div className="SBContainer__formation">
-                <select onChange={handleSelectChange} value={selectedOption}>
-                    <option value="442">4-4-2</option>
-                    <option value="352">3-5-2</option>
-                    <option value="451">4-5-1</option>
-                </select>
+            <div className="SBContainer__pitch">
+                <DndContext>
+                    <Droppable id="attack">
+                        <Attack attack={attack} />
+                    </Droppable>
+                </DndContext>
             </div>
-            <DndContext onDragEnd={handleDragEnd}>
-            {parent === null ? draggableMarkup : null}
-            {containers.map((id) => (
-        // We updated the Droppable component so it would accept an `id`
-        // prop and pass it to `useDroppable`
-            <Droppable key={id} id={id}>
-                {parent === id ? draggableMarkup : 'Drop here'}
-            </Droppable>
-            ))}
-            </DndContext>
-            <Attack attack={Squad.attack} />
-            <Mid Mid={Squad.mid} />
-            <Def Def={Squad.def} />
-            <GK GK={Squad.gk} />
         </div>
     );
-
-    function handleDragEnd(event:any) {
-        const {over} = event;
-    
-        // If the item is dropped over a container, set it as the parent
-        // otherwise reset the parent to `null`
-        setParent(over ? over.id : null);
-    }
 };
