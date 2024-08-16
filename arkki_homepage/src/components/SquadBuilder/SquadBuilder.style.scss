@@ -1,0 +1,45 @@
+.SBContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #5f0c9e;
+    height: 80vh;
+}
+
+.SBContainer__title {
+    width: 80%;
+    text-align: center;
+}
+
+.SBContainer__title-text {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 2rem;
+    font-style: thin;
+    font-weight: 100;
+    color: #5f0c9e;
+}
+
+/* Follow me for more pens like this! */
+
+/* Tweak to change the look and feel */
+.SBContainer__formation select {
+    color: #5f0c9e;
+    background-color: rgb(255, 255, 255);
+    border: #5f0c9e 1px solid;
+    border-radius: 5px;
+    font-style: thin;
+    font-weight: 300;
+    font-family: "Roboto";
+    margin-bottom: 4em;
+}
+
+.SBContainer__formation option {
+    color: #5f0c9e;
+    background-color: rgb(255, 255, 255);
+    font-style: thin;
+    font-weight: 300;
+    font-family: "Roboto";
+}

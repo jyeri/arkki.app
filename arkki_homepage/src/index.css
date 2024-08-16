@@ -1,4 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap'); 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500,600,700,100i,200i,300i,400i,500i,600i,700i&display=swap'); 
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,100i,200i,300i,400i,500i,600i,700i&display=swap');
+
+@font-face {
+  font-family: 'Toko';
+  src: url(../Assets/Teko-SemiBold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Toko';
+  src: url(../Assets/Teko-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Toko';
+  src: url(../Assets/Teko-Light.ttf);
+  font-weight: 300;
+}
+
 
 html, body {
   margin: 0;

@@ -25,11 +25,13 @@ export const SquadBuilder = () => {
             <div className="SBContainer__title">
                 <h1 className="SBContainer__title-text">Squad Builder</h1>
             </div>
-            <select onChange={handleSelectChange} value={selectedOption}>
-                <option value="442">4-4-2</option>
-                <option value="352">3-5-2</option>
-                <option value="451">4-5-1</option>
-            </select>
+            <div className="SBContainer__formation">
+                <select onChange={handleSelectChange} value={selectedOption}>
+                    <option value="442">4-4-2</option>
+                    <option value="352">3-5-2</option>
+                    <option value="451">4-5-1</option>
+                </select>
+            </div>
             <DndContext onDragEnd={handleDragEnd}>
             {parent === null ? draggableMarkup : null}
             {containers.map((id) => (
