@@ -22,13 +22,11 @@
     color: #5f0c9e;
 }
 
-/* Follow me for more pens like this! */
-
-/* Tweak to change the look and feel */
 .SBContainer__formation {
     position: relative;
     margin-bottom: 4em;
     text-align: center;
+    flex-direction: column;
     margin-top: 2em;
 }
 
@@ -80,4 +78,10 @@
 
 .SBContainer__dropdown-item:hover {
     background-color: #f0f0f0;
+}
+
+.SBContainer__pitch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

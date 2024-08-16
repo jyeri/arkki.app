@@ -2,14 +2,14 @@ import React from 'react';
 import './Formation.style.scss';
 
 interface MidProps {
-    mid: string[];
+    Mid: string[];
 }
 
-export const Mid: React.FC<MidProps> = ({ mid }) => {
+export const Mid: React.FC<MidProps> = ({ Mid = [] }) => {
     return (
         <div className='Formation__line'>
-            {mid.map((player, index) => (
-                <div key={index} style={{ width: '70px', height: '100px', backgroundColor: 'black', margin: '40px' }}>
+            {Mid.map((player, index) => (
+                <div className='player' key={index}>
                     {player}
                 </div>
             ))}

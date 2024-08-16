@@ -24,7 +24,7 @@ export const useSquadBuilder = (formation: string) => {
             setAttack(["Player1", "Player2"]);
             setMid(["Player3", "Player4", "Player5", "Player6", "Player7"]);
             setDef(["Player8", "Player9", "Player10"]);
-            setGk(["Player11"]);
+            setGk(["Player11"],);
         }
     }, [formation]);
 

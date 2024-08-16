@@ -50,6 +50,15 @@ export const SquadBuilder = () => {
                     <Droppable id="attack">
                         <Attack attack={attack} />
                     </Droppable>
+                    <Droppable id="mid">
+                        <Mid Mid={mid} />
+                    </Droppable>
+                    <Droppable id="defense">
+                        <Def Def={def} />
+                    </Droppable>
+                    <Droppable id="GK">
+                        <GK GK={gk} />
+                    </Droppable>
                 </DndContext>
             </div>
         </div>

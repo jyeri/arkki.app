@@ -1,6 +1,45 @@
 .Formation__line {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    margin: 1rem;
+    margin: 2rem 4rem 0.1rem 0rem;
+    width: 100%;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #5f0c9e;
+    border-radius: 0.25em;
+    margin: 0;
+    height: 160px;
+    width: 120px;
+}
+
+@media (max-width: 768px) {
+    .player {
+        height: 140px;
+        width: 100px;
+    }
+    
+}
+
+@media (max-width: 560px) {
+    .player {
+        height: 120px;
+        width: 80px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .Formation__line {
+        margin: 1rem 4rem 0.1rem 0rem;
+    }
+    .player {
+        height: 180px;
+        width: 140px;
+    }
 }
