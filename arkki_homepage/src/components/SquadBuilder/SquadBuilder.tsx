@@ -1,20 +1,16 @@
-import "./SquadBuilder.style.scss"
-import logo from "./arkki-logo.png"
-import whitelogo from "./arkki-logo-white.svg"
-import { Attack } from "./Formation/Attack"
-import { Mid } from "./Formation/Mid"
-import { Def } from "./Formation/Def"
-import { GK } from "./Formation/GK"
-import { useSquadBuilder } from "./useSquadBuilder.ts"
-import React, { useState } from 'react';
-import { DndContext } from '@dnd-kit/core';
-import { Droppable } from '../DnD/Droppaple.tsx';
-import { Draggable } from '../DnD/Draggable.tsx';
+import { useState } from 'react';
+import { DragDropContext, DropResult } from '@hello-pangea/dnd';
+import { useSquadBuilder } from './useSquadBuilder.ts';
+import './SquadBuilder.style.scss';
+import { Attack } from './Formation/Attack';
+import { Mid } from './Formation/Mid';
+import { Def } from './Formation/Def';
+import { GK } from './Formation/GK';
 
 export const SquadBuilder = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState("Select Formation");
-    const { attack, mid, def, gk } = useSquadBuilder(selectedOption);
+    const [selectedOption, setSelectedOption] = useState('Select Formation');
+    const { attack, mid, def, gk, updatePlayerPosition } = useSquadBuilder(selectedOption);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -25,6 +21,19 @@ export const SquadBuilder = () => {
         setIsDropdownOpen(false);
     };
 
+    const onDragEnd = (result: DropResult) => {
+        const { source, destination } = result;
+
+        if (!destination) {
+            return;
+        }
+
+        const [sourceDroppableId, sourceIndex] = source.droppableId.split('-');
+        const [destinationDroppableId, destinationIndex] = destination.droppableId.split('-');
+
+        updatePlayerPosition(parseInt(sourceIndex), parseInt(destinationIndex), sourceDroppableId, destinationDroppableId);
+    };
+
     return (
         <div className="SBContainer__formation">
             <div className="SBContainer__dropdown">
@@ -33,33 +42,33 @@ export const SquadBuilder = () => {
                 </button>
                 {isDropdownOpen && (
                     <ul className="SBContainer__dropdown-menu">
-                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick("4-4-2")}>
+                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick('4-4-2')}>
                             4-4-2
                         </li>
-                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick("4-3-3")}>
+                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick('4-3-3')}>
                             4-3-3
                         </li>
-                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick("3-5-2")}>
+                        <li className="SBContainer__dropdown-item" onClick={() => handleOptionClick('3-5-2')}>
                             3-5-2
                         </li>
                     </ul>
                 )}
             </div>
             <div className="SBContainer__pitch">
-                <DndContext>
-                    <Droppable id="attack">
+                <DragDropContext onDragEnd={onDragEnd}>
+                    <div className="SBContainer__pitch-attack">
                         <Attack attack={attack} />
-                    </Droppable>
-                    <Droppable id="mid">
-                        <Mid Mid={mid} />
-                    </Droppable>
-                    <Droppable id="defense">
-                        <Def Def={def} />
-                    </Droppable>
-                    <Droppable id="GK">
-                        <GK GK={gk} />
-                    </Droppable>
-                </DndContext>
+                    </div>
+                    <div className="SBContainer__pitch-mid">
+                        <Mid mid={mid} />
+                    </div>
+                    <div className="SBContainer__pitch-def">
+                        <Def def={def} />
+                    </div>
+                    <div className="SBContainer__pitch-gk">
+                        <GK gk={gk} />
+                    </div>
+                </DragDropContext>
             </div>
         </div>
     );

@@ -1,17 +1,34 @@
 import React from 'react';
 import './Formation.style.scss';
+import { Draggable, DraggableProvided, Droppable, DroppableProvided } from '@hello-pangea/dnd';
 
 interface MidProps {
-    Mid: string[];
+    mid?: string[];
 }
 
-export const Mid: React.FC<MidProps> = ({ Mid = [] }) => {
+export const Mid: React.FC<MidProps> = ({ mid = [] }) => {
     return (
         <div className='Formation__line'>
-            {Mid.map((player, index) => (
-                <div className='player' key={index}>
-                    {player}
-                </div>
+            {mid.map((player, index) => (
+                <Droppable key={player} droppableId={`mid-${index}`}>
+                    {(provided: DroppableProvided) => (
+                        <div ref={provided.innerRef} {...provided.droppableProps} className='droppable-slot'>
+                            <Draggable draggableId={player} index={index}>
+                                {(provided: DraggableProvided) => (
+                                    <div
+                                        className='player'
+                                        ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                    >
+                                        {player}
+                                    </div>
+                                )}
+                            </Draggable>
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
             ))}
         </div>
     );

@@ -1,17 +1,34 @@
 import React from 'react';
 import './Formation.style.scss';
+import { Draggable, DraggableProvided, Droppable, DroppableProvided } from '@hello-pangea/dnd';
 
-interface GkProps {
-    GK: string[];
+interface GKProps {
+    gk?: string[];
 }
 
-export const GK: React.FC<GkProps> = ({ GK = [] }) => {
+export const GK: React.FC<GKProps> = ({ gk = [] }) => {
     return (
         <div className='Formation__line'>
-            {GK.map((player, index) => (
-                <div className='player' key={index}>
-                    {player}
-                </div>
+            {gk.map((player, index) => (
+                <Droppable key={player} droppableId={`gk`}>
+                    {(provided: DroppableProvided) => (
+                        <div ref={provided.innerRef} {...provided.droppableProps} className='droppable-slot'>
+                            <Draggable draggableId={player} index={index}>
+                                {(provided: DraggableProvided) => (
+                                    <div
+                                        className='player'
+                                        ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                    >
+                                        {player}
+                                    </div>
+                                )}
+                            </Draggable>
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
             ))}
         </div>
     );
