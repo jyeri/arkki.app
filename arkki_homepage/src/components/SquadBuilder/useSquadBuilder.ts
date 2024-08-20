@@ -8,7 +8,7 @@ interface Player {
     position: string;
 }
 
-export const useSquadBuilder = (formation: string) => {
+export const useSquadBuilder = () => {
     const [players, setPlayers] = useState<Player[]>([]);
     const [attack, setAttack] = useState<Player[]>([]);
     const [mid, setMid] = useState<Player[]>([]);
@@ -16,9 +16,16 @@ export const useSquadBuilder = (formation: string) => {
     const [gk, setGk] = useState<Player[]>([]);
     const [substitutes, setSubstitutes] = useState<Player[]>([]);
     const [reserves, setReserves] = useState<Player[]>([]);
-
     const [filteredSubstitutes, setFilteredSubstitutes] = useState<Player[]>([]);
     const [filteredReserves, setFilteredReserves] = useState<Player[]>([]);
+    const [selectedOption, setSelectedOption] = useState('Select Formation');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isSubstitutesOpen, setIsSubstitutesOpen] = useState(false);
+    const [isReservesOpen, setIsReservesOpen] = useState(false);
+    const [substitutesFilter, setSubstitutesFilter] = useState('all');
+    const [reservesFilter, setReservesFilter] = useState('all');
+    const [isSubstitutesFilterDropdownOpen, setIsSubstitutesFilterDropdownOpen] = useState(false);
+    const [isReservesFilterDropdownOpen, setIsReservesFilterDropdownOpen] = useState(false);
 
     useEffect(() => {
         const fetchPlayers = async () => {
@@ -34,7 +41,7 @@ export const useSquadBuilder = (formation: string) => {
     }, []);
 
     useEffect(() => {
-        console.log(`Formation changed to: ${formation}`);
+        console.log(`Formation changed to: ${selectedOption}`);
         
         // Create a set to keep track of assigned players
         const assignedPlayers = new Set<number>();
@@ -48,7 +55,7 @@ export const useSquadBuilder = (formation: string) => {
         };
 
         // Update the state based on the formation
-        switch (formation) {
+        switch (selectedOption) {
             case '4-4-2':
                 setAttack(filterAndAssignPlayers('attack', 2));
                 setMid(filterAndAssignPlayers('mid', 4));
@@ -84,7 +91,7 @@ export const useSquadBuilder = (formation: string) => {
         setFilteredSubstitutes(remainingPlayers.slice(0, 7));
         setFilteredReserves(remainingPlayers.slice(7));
 
-    }, [formation, players]);
+    }, [selectedOption, players]);
 
     const updatePlayerPosition = (sourceIndex: number, destinationIndex: number, sourceDroppableId: string, destinationDroppableId: string) => {
         const sourceList = [...getListById(sourceDroppableId)];
@@ -155,7 +162,14 @@ export const useSquadBuilder = (formation: string) => {
 
     const filterPlayersByPosition = (position: string, listType: string) => {
         const list = listType === 'substitutes' ? substitutes : reserves;
-        const filteredList = list.filter(player => player.position === position);
+        let filteredList;
+    
+        if (position === 'all') {
+            filteredList = list;
+        } else {
+            filteredList = list.filter(player => player.position === position);
+        }
+    
         if (listType === 'substitutes') {
             setFilteredSubstitutes(filteredList);
         } else {
@@ -163,5 +177,61 @@ export const useSquadBuilder = (formation: string) => {
         }
     };
 
-    return { attack, mid, def, gk, substitutes, reserves, filteredSubstitutes, filteredReserves, updatePlayerPosition, filterPlayersByPosition };
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleOptionClick = (option: string) => {
+        setSelectedOption(option);
+        setIsDropdownOpen(false);
+    };
+
+    const toggleSubstitutesFilterDropdown = () => {
+        setIsSubstitutesFilterDropdownOpen(!isSubstitutesFilterDropdownOpen);
+    };
+
+    const toggleReservesFilterDropdown = () => {
+        setIsReservesFilterDropdownOpen(!isReservesFilterDropdownOpen);
+    };
+
+    const handleSubstitutesFilterOptionClick = (position: string) => {
+        setSubstitutesFilter(position);
+        filterPlayersByPosition(position, 'substitutes');
+        setIsSubstitutesFilterDropdownOpen(false);
+    };
+
+    const handleReservesFilterOptionClick = (position: string) => {
+        setReservesFilter(position);
+        filterPlayersByPosition(position, 'reserves');
+        setIsReservesFilterDropdownOpen(false);
+    };
+
+    return {
+        attack,
+        mid,
+        def,
+        gk,
+        substitutes,
+        reserves,
+        filteredSubstitutes,
+        filteredReserves,
+        updatePlayerPosition,
+        filterPlayersByPosition,
+        selectedOption,
+        isDropdownOpen,
+        isSubstitutesOpen,
+        isReservesOpen,
+        substitutesFilter,
+        reservesFilter,
+        isSubstitutesFilterDropdownOpen,
+        isReservesFilterDropdownOpen,
+        toggleDropdown,
+        handleOptionClick,
+        toggleSubstitutesFilterDropdown,
+        toggleReservesFilterDropdown,
+        handleSubstitutesFilterOptionClick,
+        handleReservesFilterOptionClick,
+        setIsSubstitutesOpen,
+        setIsReservesOpen
+    };
 };

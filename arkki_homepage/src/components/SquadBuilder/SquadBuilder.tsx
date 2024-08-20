@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
-import { useSquadBuilder } from './useSquadBuilder.ts';
+import { useSquadBuilder } from './useSquadBuilder';
 import './SquadBuilder.style.scss';
 import { Attack } from './Formation/Attack';
 import { Mid } from './Formation/Mid';
@@ -10,32 +9,31 @@ import { Substitutes } from './Formation/Substitutes';
 import { Reserves } from './Formation/Reserves';
 
 export const SquadBuilder = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('Select Formation');
-    const [isSubstitutesOpen, setIsSubstitutesOpen] = useState(false);
-    const [isReservesOpen, setIsReservesOpen] = useState(false);
-    const [filter, setFilter] = useState('all');
-    const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
-    const { attack, mid, def, gk, substitutes, reserves, filteredSubstitutes, filteredReserves, updatePlayerPosition, filterPlayersByPosition } = useSquadBuilder(selectedOption);
-
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const handleOptionClick = (option: string) => {
-        setSelectedOption(option);
-        setIsDropdownOpen(false);
-    };
-
-    const toggleFilterDropdown = () => {
-        setIsFilterDropdownOpen(!isFilterDropdownOpen);
-    };
-
-    const handleFilterOptionClick = (position: string, listType: string) => {
-        setFilter(position);
-        filterPlayersByPosition(position, listType);
-        setIsFilterDropdownOpen(false);
-    };
+    const {
+        attack,
+        mid,
+        def,
+        gk,
+        filteredSubstitutes,
+        filteredReserves,
+        updatePlayerPosition,
+        selectedOption,
+        isDropdownOpen,
+        isSubstitutesOpen,
+        isReservesOpen,
+        substitutesFilter,
+        reservesFilter,
+        isSubstitutesFilterDropdownOpen,
+        isReservesFilterDropdownOpen,
+        toggleDropdown,
+        handleOptionClick,
+        toggleSubstitutesFilterDropdown,
+        toggleReservesFilterDropdown,
+        handleSubstitutesFilterOptionClick,
+        handleReservesFilterOptionClick,
+        setIsSubstitutesOpen,
+        setIsReservesOpen
+    } = useSquadBuilder();
 
     const onDragEnd = (result: DropResult) => {
         const { source, destination } = result;
@@ -86,24 +84,24 @@ export const SquadBuilder = () => {
                     </div>
                     <div className={`SBContainer__substitutes ${isSubstitutesOpen ? 'open' : ''}`}>
                         <div className="SBContainer__filter-dropdown">
-                            <button className="SBContainer__filter-dropdown-button" onClick={toggleFilterDropdown}>
-                                {filter}
+                            <button className="SBContainer__filter-dropdown-button" onClick={toggleSubstitutesFilterDropdown}>
+                                {substitutesFilter}
                             </button>
-                            {isFilterDropdownOpen && (
+                            {isSubstitutesFilterDropdownOpen && (
                                 <ul className="SBContainer__filter-dropdown-menu">
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('all', 'substitutes')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleSubstitutesFilterOptionClick('all')}>
                                         Show All
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('attack', 'substitutes')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleSubstitutesFilterOptionClick('attack')}>
                                         Attackers
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('mid', 'substitutes')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleSubstitutesFilterOptionClick('mid')}>
                                         Midfielders
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('def', 'substitutes')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleSubstitutesFilterOptionClick('def')}>
                                         Defenders
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('GK', 'substitutes')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleSubstitutesFilterOptionClick('GK')}>
                                         Goalkeepers
                                     </li>
                                 </ul>
@@ -113,24 +111,24 @@ export const SquadBuilder = () => {
                     </div>
                     <div className={`SBContainer__reserves ${isReservesOpen ? 'open' : ''}`}>
                         <div className="SBContainer__filter-dropdown">
-                            <button className="SBContainer__filter-dropdown-button" onClick={toggleFilterDropdown}>
-                                {filter}
+                            <button className="SBContainer__filter-dropdown-button" onClick={toggleReservesFilterDropdown}>
+                                {reservesFilter}
                             </button>
-                            {isFilterDropdownOpen && (
+                            {isReservesFilterDropdownOpen && (
                                 <ul className="SBContainer__filter-dropdown-menu">
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('all', 'reserves')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleReservesFilterOptionClick('all')}>
                                         Show All
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('attack', 'reserves')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleReservesFilterOptionClick('attack')}>
                                         Attackers
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('mid', 'reserves')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleReservesFilterOptionClick('mid')}>
                                         Midfielders
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('def', 'reserves')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleReservesFilterOptionClick('def')}>
                                         Defenders
                                     </li>
-                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleFilterOptionClick('GK', 'reserves')}>
+                                    <li className="SBContainer__filter-dropdown-item" onClick={() => handleReservesFilterOptionClick('GK')}>
                                         Goalkeepers
                                     </li>
                                 </ul>
