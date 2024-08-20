@@ -2,15 +2,15 @@ import React from 'react';
 import './Formation.style.scss';
 import { Draggable, DraggableProvided, Droppable, DroppableProvided } from '@hello-pangea/dnd';
 
-interface DefProps {
-    def?: { firstName: string, lastName: string, number: number }[];
+interface ReservesProps {
+    reserves?: { firstName: string, lastName: string, number: number }[];
 }
 
-export const Def: React.FC<DefProps> = ({ def = [] }) => {
+export const Reserves: React.FC<ReservesProps> = ({ reserves = [] }) => {
     return (
-        <div className='Formation__line'>
-            {def.map((player, index) => (
-                <Droppable key={player.number} droppableId={`def-${index}`}>
+        <div className='Formation__line Formation__line--vertical'>
+            {reserves.map((player, index) => (
+                <Droppable key={player.number} droppableId={`reserves-${index}`}>
                     {(provided: DroppableProvided) => (
                         <div ref={provided.innerRef} {...provided.droppableProps} className='droppable-slot'>
                             <Draggable draggableId={player.number.toString()} index={index}>

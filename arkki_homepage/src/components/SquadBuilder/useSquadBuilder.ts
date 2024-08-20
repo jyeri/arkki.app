@@ -1,36 +1,90 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+interface Player {
+    firstName: string;
+    lastName: string;
+    number: number;
+    position: string;
+}
 
 export const useSquadBuilder = (formation: string) => {
-    const [attack, setAttack] = useState<string[]>(['Player1', 'Player2', 'Player3']);
-    const [mid, setMid] = useState<string[]>(['Player4', 'Player5', 'Player6']);
-    const [def, setDef] = useState<string[]>(['Player7', 'Player8', 'Player9', 'Player10']);
-    const [gk, setGk] = useState<string[]>(['Player11']);
+    const [players, setPlayers] = useState<Player[]>([]);
+    const [attack, setAttack] = useState<Player[]>([]);
+    const [mid, setMid] = useState<Player[]>([]);
+    const [def, setDef] = useState<Player[]>([]);
+    const [gk, setGk] = useState<Player[]>([]);
+    const [substitutes, setSubstitutes] = useState<Player[]>([]);
+    const [reserves, setReserves] = useState<Player[]>([]);
+
+    const [filteredSubstitutes, setFilteredSubstitutes] = useState<Player[]>([]);
+    const [filteredReserves, setFilteredReserves] = useState<Player[]>([]);
+
+    useEffect(() => {
+        const fetchPlayers = async () => {
+            try {
+                const response = await axios.get('http://localhost:5001/players');
+                setPlayers(response.data);
+            } catch (error) {
+                console.error('Error fetching players:', error);
+            }
+        };
+
+        fetchPlayers();
+    }, []);
 
     useEffect(() => {
         console.log(`Formation changed to: ${formation}`);
+        
+        // Create a set to keep track of assigned players
+        const assignedPlayers = new Set<number>();
+
+        // Filter players based on their positions and ensure uniqueness
+        const filterAndAssignPlayers = (position: string, count: number) => {
+            const filteredPlayers = players.filter(player => player.position === position && !assignedPlayers.has(player.number));
+            const assigned = filteredPlayers.slice(0, count);
+            assigned.forEach(player => assignedPlayers.add(player.number));
+            return assigned;
+        };
+
         // Update the state based on the formation
         switch (formation) {
             case '4-4-2':
-                setAttack(['Player1', 'Player2']);
-                setMid(['Player3', 'Player4', 'Player5', 'Player6']);
-                setDef(['Player7', 'Player8', 'Player9', 'Player10']);
-                setGk(['Player11']);
+                setAttack(filterAndAssignPlayers('attack', 2));
+                setMid(filterAndAssignPlayers('mid', 4));
+                setDef(filterAndAssignPlayers('def', 4));
+                setGk(filterAndAssignPlayers('GK', 1));
                 break;
             case '3-5-2':
-                setAttack(['Player1', 'Player2']);
-                setMid(['Player3', 'Player4', 'Player5', 'Player6', 'Player7']);
-                setDef(['Player8', 'Player9', 'Player10']);
-                setGk(['Player11']);
+                setAttack(filterAndAssignPlayers('attack', 2));
+                setMid(filterAndAssignPlayers('mid', 5));
+                setDef(filterAndAssignPlayers('def', 3));
+                setGk(filterAndAssignPlayers('GK', 1));
                 break;
-            // Add more formations as needed
+            case '4-3-3':
+                setAttack(filterAndAssignPlayers('attack', 3));
+                setMid(filterAndAssignPlayers('mid', 3));
+                setDef(filterAndAssignPlayers('def', 4));
+                setGk(filterAndAssignPlayers('GK', 1));
+                break;
             default:
-                setAttack(['Player1', 'Player2', 'Player3']);
-                setMid(['Player4', 'Player5', 'Player6']);
-                setDef(['Player7', 'Player8', 'Player9', 'Player10']);
-                setGk(['Player11']);
+                setAttack(filterAndAssignPlayers('attack', 3));
+                setMid(filterAndAssignPlayers('mid', 3));
+                setDef(filterAndAssignPlayers('def', 4));
+                setGk(filterAndAssignPlayers('GK', 1));
                 break;
         }
-    }, [formation]);
+
+        // Assign substitutes and reserves
+        const remainingPlayers = players.filter(player => !assignedPlayers.has(player.number));
+        setSubstitutes(remainingPlayers.slice(0, 7));
+        setReserves(remainingPlayers.slice(7));
+
+        // Initialize filtered lists
+        setFilteredSubstitutes(remainingPlayers.slice(0, 7));
+        setFilteredReserves(remainingPlayers.slice(7));
+
+    }, [formation, players]);
 
     const updatePlayerPosition = (sourceIndex: number, destinationIndex: number, sourceDroppableId: string, destinationDroppableId: string) => {
         const sourceList = [...getListById(sourceDroppableId)];
@@ -65,12 +119,16 @@ export const useSquadBuilder = (formation: string) => {
                 return def;
             case 'gk':
                 return gk;
+            case 'substitutes':
+                return substitutes;
+            case 'reserves':
+                return reserves;
             default:
                 return [];
         }
     };
     
-    const setListById = (id: string, list: string[]) => {
+    const setListById = (id: string, list: Player[]) => {
         switch (id) {
             case 'attack':
                 setAttack(list);
@@ -84,10 +142,26 @@ export const useSquadBuilder = (formation: string) => {
             case 'gk':
                 setGk(list);
                 break;
+            case 'substitutes':
+                setSubstitutes(list);
+                break;
+            case 'reserves':
+                setReserves(list);
+                break;
             default:
                 break;
         }
     };
 
-    return { attack, mid, def, gk, updatePlayerPosition };
+    const filterPlayersByPosition = (position: string, listType: string) => {
+        const list = listType === 'substitutes' ? substitutes : reserves;
+        const filteredList = list.filter(player => player.position === position);
+        if (listType === 'substitutes') {
+            setFilteredSubstitutes(filteredList);
+        } else {
+            setFilteredReserves(filteredList);
+        }
+    };
+
+    return { attack, mid, def, gk, substitutes, reserves, filteredSubstitutes, filteredReserves, updatePlayerPosition, filterPlayersByPosition };
 };

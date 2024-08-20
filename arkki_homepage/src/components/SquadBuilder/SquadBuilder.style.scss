@@ -4,8 +4,8 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 1px solid #5f0c9e;
     height: 80vh;
+    position: relative;
 }
 
 .SBContainer__title {
@@ -47,7 +47,6 @@
     cursor: pointer;
     width: 100%;
     text-align: left;
-
 }
 
 .SBContainer__dropdown-menu {
@@ -82,6 +81,220 @@
 
 .SBContainer__pitch {
     display: flex;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 0.4rem;
+    font-style: thin;
+    font-weight: 100;
     flex-direction: column;
     align-items: center;
+}
+
+.SBContainer__toggle-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5f0c9e;
+    border: #5f0c9e 1px solid;
+    padding: 0.5rem 0.25rem;
+    height: 160px;
+    background-color: transparent;
+
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl; /* Rotate text */
+    text-orientation: upright; /* Rotate text */
+}
+
+.SBContainer__toggle-button.left {
+    border-radius: 0px 5px 5px 0px;
+    left: 0;
+}
+
+.SBContainer__toggle-button.right {
+    border-radius: 5px 0px 0px 5px;
+    right: 0;
+}
+
+.SBContainer__substitutes,
+.SBContainer__reserves {
+    position: absolute;
+    display: flex;
+    flex-direction: column; /* Ensure vertical layout */
+    top: 0;
+    bottom: 0;
+    width: 110px; /* Full width */
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 0.4rem;
+    font-style: thin;
+    font-weight: 100;
+    background-color: white;
+    border: 1px solid #5f0c9e;
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    padding: 0rem; /* Add padding for better spacing */
+}
+
+@media (max-width: 768px) {
+    .SBContainer__substitutes,
+    .SBContainer__reserves {
+        width: 100px;
+    }
+    .SBContainer__substitutes .player,
+    .SBContainer__reserves .player {
+        width: 100px; /* Adjust width for horizontal layout */
+        height: 140px;
+        box-sizing: border-box; /* Include padding and border in width */
+    }
+    .SBContainer__substitutes {
+        left: -100px; /* Hide off-screen */
+    }
+    
+    .SBContainer__reserves {
+        right: -100px; /* Hide off-screen */
+    }
+    
+    .SBContainer__substitutes.open {
+        transform: translateX(100px); /* Slide in from left */
+    }
+    
+    .SBContainer__reserves.open {
+        transform: translateX(-100px); /* Slide in from right */
+    }
+}
+
+@media (max-width: 560px) {
+    .SBContainer__substitutes,
+    .SBContainer__reserves {
+        width: 60px;
+    }
+    .SBContainer__substitutes .player,
+    .SBContainer__reserves .player {
+        width: 60px; /* Adjust width for horizontal layout */
+        height: 100px;
+        box-sizing: border-box; /* Include padding and border in width */
+    }
+
+    .SBContainer__substitutes {
+        left: -60px; /* Hide off-screen */
+    }
+    
+    .SBContainer__reserves {
+        right: -60px; /* Hide off-screen */
+    }
+    
+    .SBContainer__substitutes.open {
+        transform: translateX(60px); /* Slide in from left */
+    }
+    
+    .SBContainer__reserves.open {
+        transform: translateX(-60px); /* Slide in from right */
+    }
+}
+
+@media (min-width: 1280px) {
+    .SBContainer__substitutes,
+    .SBContainer__reserves {
+        width: 140px;
+        flex-direction: row !important;
+
+    }
+
+    .SBContainer__substitutes .player,
+    .SBContainer__reserves .player {
+        width: 140px; /* Adjust width for horizontal layout */
+        height: 180px;
+    }
+
+    .SBContainer__substitutes {
+        left: -140px; /* Hide off-screen */
+    }
+    
+    .SBContainer__reserves {
+        right: -140px; /* Hide off-screen */
+    }
+    
+    .SBContainer__substitutes.open {
+        transform: translateX(140px); /* Slide in from left */
+    }
+    
+    .SBContainer__reserves.open {
+        transform: translateX(-140px); /* Slide in from right */
+    }
+}
+
+
+.SBContainer__substitutes .player,
+.SBContainer__reserves .player {
+    margin: 0 0 0.1rem 0; /* Space between players */
+}
+
+.SBContainer__substitutes {
+    left: -160px; /* Hide off-screen */
+}
+
+.SBContainer__reserves {
+    right: -160px; /* Hide off-screen */
+}
+
+.SBContainer__substitutes.open {
+    transform: translateX(160px); /* Slide in from left */
+}
+
+.SBContainer__reserves.open {
+    transform: translateX(-160px); /* Slide in from right */
+}
+
+.SBContainer__filter-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.SBContainer__filter-dropdown-button {
+    color: #5f0c9e;
+    background-color: rgb(255, 255, 255);
+    border: #5f0c9e 1px solid;
+    border-radius: 5px;
+    font-style: thin;
+    font-weight: 300;
+    font-family: "Roboto";
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.SBContainer__filter-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border: #5f0c9e 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.SBContainer__filter-dropdown-item {
+    color: #5f0c9e;
+    background-color: rgb(255, 255, 255);
+    font-style: thin;
+    font-weight: 300;
+    font-family: "Roboto";
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.SBContainer__filter-dropdown-item:hover {
+    background-color: #f0f0f0;
 }

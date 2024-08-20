@@ -43,3 +43,12 @@
         width: 140px;
     }
 }
+
+.Formation__line--vertical {
+    display: flex;
+    flex-direction: column; /* Change to column for vertical layout */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+    margin: 0rem 0; /* Adjust margins as needed */
+    width: 100%;
+}
