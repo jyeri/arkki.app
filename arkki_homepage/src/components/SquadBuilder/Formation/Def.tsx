@@ -1,6 +1,9 @@
 import React from 'react';
 import './Formation.style.scss';
+import { playerImages } from '../../../assets/index';
 import { Draggable, DraggableProvided, Droppable, DroppableProvided } from '@hello-pangea/dnd';
+import logo from '../../../assets/arkki-logo-white.svg';
+
 
 interface DefProps {
     def?: { firstName: string, lastName: string, number: number }[];
@@ -21,8 +24,10 @@ export const Def: React.FC<DefProps> = ({ def = [] }) => {
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                     >
-                                        <h1 className='lastName'> {player.lastName}</h1> <h2 className='firstName'>{player.firstName}</h2> #{player.number}
-                                    </div>
+                    <span className='playerNumber'> {player.number}</span> 
+                    <img className='playerImg' src={playerImages[player.firstName] || logo} alt={player.firstName} />
+                    <h1 className='lastName'> {player.lastName}</h1> <h2 className='firstName'>{player.firstName}</h2>
+                    </div>
                                 )}
                             </Draggable>
                             {provided.placeholder}

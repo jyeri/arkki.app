@@ -125,13 +125,13 @@
     flex-direction: column; /* Ensure vertical layout */
     top: 0;
     bottom: 0;
-    width: 110px; /* Full width */
+    width: 130px; /* Full width */
     font-family: 'Roboto Mono', sans-serif;
     font-size: 0.4rem;
     font-style: thin;
     font-weight: 100;
     background-color: white;
-    border: 1px solid #5f0c9e;
+    border: 1px solid #ffffff;
     transition: transform 0.3s ease-in-out;
     z-index: 999;
     overflow-y: auto; /* Allow vertical scrolling */
@@ -200,7 +200,6 @@
     .SBContainer__substitutes,
     .SBContainer__reserves {
         width: 140px;
-        flex-direction: row !important;
 
     }
 
