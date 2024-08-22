@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { Player } from '../Interfaces/player';
 
-export const fetchPlayers = async (): Promise<Player[]> => {
+export const fetchPlayers = async () => {
     try {
         const response = await axios.get('http://localhost:5001/players');
         return response.data;
