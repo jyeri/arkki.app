@@ -125,7 +125,7 @@
     flex-direction: column; /* Ensure vertical layout */
     top: 0;
     bottom: 0;
-    width: 130px; /* Full width */
+    width: 260px; /* Adjust width to fit two columns */
     font-family: 'Roboto Mono', sans-serif;
     font-size: 0.4rem;
     font-style: thin;
@@ -139,11 +139,21 @@
     padding: 0rem; /* Add padding for better spacing */
 }
 
+@media (max-width: 768px) {
+    .SBContainer__substitutes,
+    .SBContainer__reserves {
+        width: 200px; /* Adjust width for smaller screens */
+    }
+}
+
 @media (max-width: 560px) {
     .SBContainer__substitutes,
     .SBContainer__reserves {
-        width: 60px;
+        width: 160px; /* Adjust width for smallest screens */
     }
+}
+
+@media (max-width: 560px) {
     .SBContainer__substitutes .player,
     .SBContainer__reserves .player {
         width: 60px; /* Adjust width for horizontal layout */

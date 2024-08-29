@@ -222,13 +222,26 @@
 }
 
 
-
 .Formation__line--vertical {
-    display: flex;
-    flex-direction: column; /* Change to column for vertical layout */
-    justify-content: flex-start; /* Align items to the start */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 0.5rem; /* Adjust gap as needed */
+    justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
     margin: 0rem 0; /* Adjust margins as needed */
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .Formation__line--vertical {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 0.25rem; /* Reduce gap for smaller screens */
+    }
+}
+
+@media (max-width: 560px) {
+    .Formation__line--vertical {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 0.1rem; /* Further reduce gap for smallest screens */
+    }
 }
