@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react"
+import { Circle, CircleDot } from "lucide-react"
 import "./AboutUs.style.scss"
 
 type ImageGalleryProps = {
@@ -50,7 +50,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
         style={{ left: 0 }}
         aria-label="View Previous Image"
       >
-        <ArrowBigLeft aria-hidden />
+        <div className="arrow--left" aria-hidden />
       </button>
       <button
         onClick={showNextImage}
@@ -58,7 +58,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
         style={{ right: 0 }}
         aria-label="View Next Image"
       >
-        <ArrowBigRight aria-hidden />
+        <div className="arrow--right" aria-hidden />
       </button>
       <div
         style={{
