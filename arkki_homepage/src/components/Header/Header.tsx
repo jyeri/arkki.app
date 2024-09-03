@@ -3,9 +3,13 @@ import logo from "./arkki-logo.png";
 import whitelogo from "./arkki-logo.svg";
 import { useState } from "react";
 
-export const Header = () => {
+interface HeaderProps {
+    onMenuItemClick: (page: string) => void;
+}
+
+export const Header = ({ onMenuItemClick }: HeaderProps) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [activePage, setActivePage] = useState("Main menu");
+    const [activePage, setActivePage] = useState("About Us");
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -14,6 +18,7 @@ export const Header = () => {
     const handleMenuItemClick = (page: string) => {
         setActivePage(page);
         setIsDropdownOpen(false); // Close the dropdown after selection
+        onMenuItemClick(page); // Notify parent component
     };
 
     return (

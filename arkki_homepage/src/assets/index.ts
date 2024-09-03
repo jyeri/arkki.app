@@ -22,6 +22,12 @@ import Tanu from './arkki_img/players/tanu.png';
 import Muhis from './arkki_img/players/muhis.png';
 import Gusti from './arkki_img/players/gusti.png';
 
+import Joukkuekuva1 from './arkki_img/team/Joukkue.png';
+import Joukkuekuva2 from './arkki_img/team/joukkue_joukkuekuva.png';
+import Joukkuekuva3 from './arkki_img/team/Joukkue_lippu.png';
+import Joukkuekuva4 from './arkki_img/team/joukkue_penkki.png';
+import Joukkuekuva5 from './arkki_img/team/Joukkue_kiitos.png';
+
 export const playerImages: { [key: string]: string } = {
     Jyri,
     Martti,
@@ -47,3 +53,12 @@ export const playerImages: { [key: string]: string } = {
     Muhis,
     Gusti,
 };
+
+export const TeamImages = [
+    { url: Joukkuekuva1, alt: "Joukkuekuva" },
+    { url: Joukkuekuva2, alt: "Full team" },
+    { url: Joukkuekuva3, alt: "Team flag" },
+    { url: Joukkuekuva4, alt: "Team bench" },
+    { url: Joukkuekuva5, alt: "Team thanks" },
+];
+
