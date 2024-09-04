@@ -244,6 +244,10 @@ div.arrow--right {
   gap: 1rem 0rem 0rem;
   padding: 0.1rem;
   width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem 0rem 0rem;
+  }
 }
 
 .about__mission-header {
@@ -251,6 +255,10 @@ div.arrow--right {
     font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .about__mission-content {
@@ -261,13 +269,20 @@ div.arrow--right {
     gap: 1rem 0rem 0rem;
     padding: 0.1rem;
     width: 100%;
-    overflow-x: hidden !important;
+
+    @media (max-width: 768px) {
+      gap: 0.5rem 0rem 0rem;
+    }
 }
 
 .about__mission-paragraph {
     font-family: 'Roboto Mono', sans-serif;
     max-width: 80%;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 0.75rem;
+    }
 }
 
 .about__mission-image {
@@ -291,6 +306,10 @@ div.arrow--right {
   font-size: 1.5rem;
   font-weight: 500;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .about__journey-container {
@@ -301,12 +320,20 @@ div.arrow--right {
   gap: 1rem 0rem 0rem;
   padding: 0.1rem;
   width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem 0rem 0rem;
+  }
 }
 
 .about__journey-paragraph {
   font-family: 'Roboto Mono', sans-serif;
   max-width: 80%;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 }
 
 .about__journey-content {
@@ -317,13 +344,10 @@ div.arrow--right {
   gap: 1rem 0rem 0rem;
   padding: 0.1rem;
   width: 100%;
-  overflow-x: hidden !important;
-}
 
-.about__journey-paragraph {
-  font-family: 'Roboto Mono', sans-serif;
-  max-width: 80%;
-  text-align: center;
+  @media (max-width: 768px) {
+    gap: 0.5rem 0rem 0rem;
+  }
 }
 
 .about__journey-image {
@@ -348,6 +372,10 @@ div.arrow--right {
   font-size: 1.5rem;
   font-weight: 500;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .about__join-container {
@@ -358,12 +386,20 @@ div.arrow--right {
   gap: 1rem 0rem 0rem;
   padding: 0.1rem;
   width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem 0rem 0rem;
+  }
 }
 
 .about__join-paragraph {
   font-family: 'Roboto Mono', sans-serif;
-  max-width: 100%;
+  max-width: 80%;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 }
 
 .about__join-content {
@@ -374,14 +410,12 @@ div.arrow--right {
   gap: 1rem 0rem 0rem;
   padding: 0.1rem;
   width: 100%;
-  overflow-x: hidden !important;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem 0rem 0rem;
+  }
 }
 
-.about__join-paragraph {
-  font-family: 'Roboto Mono', sans-serif;
-  max-width: 80%;
-  text-align: center;
-}
 .about__join-image {
   z-index: -1;
   position: absolute;
