@@ -82,7 +82,7 @@
     font-size: 0.5rem;
     top: 100%;
     left: 0;
-    color: white;
+    color: #5f0c9e;
     border-bottom: 1px solid #ffffff;
     border-radius: 0.5rem;
     list-style: none;
@@ -96,9 +96,9 @@
 .HeaderContainer__dropdown-item {
     padding: 0.5rem 1rem;
     margin-top: 3px;
-    background-color: #c880ff;
-    border: 1px solid #ffffff;
-    box-shadow: #5f0c9e 5px 4px 8px;
+    background-color: #ffffff;
+    border: 1px solid #5f0c9e;
+    box-shadow: #000000 5px 4px 8px;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s;
@@ -107,6 +107,7 @@
 .HeaderContainer__dropdown-item:hover {
     transform: translate(-10px) scale(1.05);
     transition: all 0.3s;
+    color: white;
     background-color: #7e0089;
 }
 

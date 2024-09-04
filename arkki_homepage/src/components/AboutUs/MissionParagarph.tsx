@@ -16,8 +16,13 @@ export const MissionParagraph = ({ images }: AboutProps) => {
 
 
   return (
-    <div className="about__mission">
-      <div className="about__mission-container">
+    <section className="AboutUs"
+    aria-label="About Us"
+    >
+      <div className="about__mission-container"
+      aria-labelledby="Our Mission"
+      tabIndex={0}
+      >
         <h2 className="about__mission-header">our Mission</h2>
         <div className="about__mission-content">
             <motion.div className="about__mission-paragraph"
@@ -44,14 +49,17 @@ export const MissionParagraph = ({ images }: AboutProps) => {
             </motion.div>
         </div>
       </div>
-        <div className="about__journey-container">
+        <div className="about__journey-container"
+        aria-labelledby="Our Journey"
+        tabIndex={0}
+        >
             <h2 className="about__journey-header">our journey</h2>
             <div className="about__journey-content">
                 <motion.div className="about__journey-image"
-                    ref={missionRef}
-                    viewport={{ margin: "-100px" }}
-                    initial={{ opacity: 0.9, x: "30%" }}
-                    whileInView={{ opacity: 0.33, x:"-15vw", rotate: -5 }}
+                    ref={journeyRef}
+                    viewport={{ margin: "-120px" }}
+                    initial={{ opacity: 0, x: "10%" }}
+                    whileInView={{ opacity: 0.33, x:"90%", rotate: -5 }}
                     transition={{ duration: 2 }}
                     style={{ overflow: "hidden" }}
                 >
@@ -72,7 +80,10 @@ export const MissionParagraph = ({ images }: AboutProps) => {
                 </motion.div>
             </div>
         </div>
-      <div className="about__join-container">
+      <div className="about__join-container"
+      aria-labelledby="Join Us"
+      tabIndex={0}
+      >
         <h2 className="about__join-header">join us</h2>
         <div className="about__join-content">
             <motion.div className="about__join-paragraph"
@@ -91,7 +102,7 @@ export const MissionParagraph = ({ images }: AboutProps) => {
                 ref={joinRef}
                 viewport={{ margin: "-100px" }}
                 initial={{ opacity: 0.9, x: "-35%" }}
-                whileInView={{ opacity: 0.33, x:"-15vw", rotate: -10 }}
+                whileInView={{ opacity: 0.33, x:"-15vw", y: "-1vw", rotate: -10 }}
                 transition={{ duration: 2 }}
                 style={{ overflow: "hidden" }}
                 >
@@ -99,6 +110,6 @@ export const MissionParagraph = ({ images }: AboutProps) => {
             </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

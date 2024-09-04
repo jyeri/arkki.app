@@ -61,11 +61,13 @@ export const SquadBuilder = () => {
                     <div className="SBContainer__pitch-gk">
                         <GK gk={gk} />
                     </div>
-                    <div className={`SBContainer__substitutes ${isSubstitutesOpen ? 'open' : ''}`}>
-                        <Substitutes substitutes={filteredSubstitutes} />
-                    </div>
-                    <div className={`SBContainer__reserves ${isReservesOpen ? 'open' : ''}`}>
-                        <Reserves reserves={filteredReserves} />
+                    <div className="SBContainer__sides">
+                        <div className={`SBContainer__substitutes ${isSubstitutesOpen ? 'open' : ''}`}>
+                            <Substitutes substitutes={filteredSubstitutes} />
+                        </div>
+                        <div className={`SBContainer__reserves ${isReservesOpen ? 'open' : ''}`}>
+                            <Reserves reserves={filteredReserves} />
+                        </div>
                     </div>
                 </DragDropContext>
             </div>

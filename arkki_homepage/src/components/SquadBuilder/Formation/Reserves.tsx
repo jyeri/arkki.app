@@ -11,7 +11,7 @@ interface ReservesProps {
 
 export const Reserves: React.FC<ReservesProps> = ({ reserves = [] }) => {
     return (
-        <div className='Formation__line Formation__line--vertical'>
+        <div className='Formation__line--vertical'>
             {reserves.map((player, index) => (
                 <Droppable key={player.number} droppableId={`reserves-${index}`}>
                     {(provided: DroppableProvided) => (

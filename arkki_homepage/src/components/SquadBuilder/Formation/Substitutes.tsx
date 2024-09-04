@@ -11,7 +11,7 @@ interface SubstitutesProps {
 
 export const Substitutes: React.FC<SubstitutesProps> = ({ substitutes = [] }) => {
     return (
-        <div className='Formation__line Formation__line--vertical'>
+        <div className='Formation__line--vertical'>
             {substitutes.map((player, index) => (
                 <Droppable key={player.number} droppableId={`substitutes-${index}`}>
                     {(provided: DroppableProvided) => (

@@ -4,7 +4,7 @@
     font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
 .Formation__line {
     display: flex;
@@ -26,48 +26,7 @@
     margin: 0;
 }
 
-@media (min-width: 1680px) {
-    .Formation__line {
-        margin: 0.5rem 2rem 0.1rem 0rem;
-    }
-    .player {
-        height: 220px;
-        width: 160px;
-    }
-}
-
-@media (max-width: 1680px) {
-    .Formation__line {
-        margin: 0.5rem 0.5rem 0.1rem 0rem;
-    }
-    .player {
-        height: 180px;
-        width: 140px;
-    }
-}
-
-@media (max-width: 768px) {
-    .Formation__line {
-        margin: 0.1rem 0.1rem 0.1rem 0rem;
-    }
-    .player {
-        height: 140px;
-        width: 100px;
-    }
-    
-}
-
-@media (max-width: 560px) {
-    .Formation__line {
-        margin: 0.1rem 0.1rem 0.1rem 0rem;
-    }
-    .player {
-        height: 120px;
-        width: 80px;
-    }
-}
-
-.player .lastName{
+.player .lastName {
     position: relative;
     font-family: 'Righteous', sans-serif;
     top: 55px;
@@ -86,7 +45,7 @@
     margin-top: -20px;
 }
 
-.player .firstName {    
+.player .firstName {
     position: relative;
     align-self: flex-start;
     font-family: 'Righteous', sans-serif;
@@ -102,32 +61,47 @@
     font-family: 'Righteous', sans-serif;
     margin-right: 18px;
     margin-top: -34px;
-
     font-size: 21px;
     font-weight: 700;
     color: #965300;
 }
 
+.Formation__line--vertical {
+    display: grid;
+    position: absolute;
+    left: 0;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 0rem; /* Adjust gap as needed */
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 0; /* Adjust margins as needed */
+    width: 100%;
+}
+
 @media (min-width: 1680px) {
+    .Formation__line {
+        margin: 0.5rem 2rem 0.1rem 0rem;
+    }
+    .player {
+        height: 220px;
+        width: 160px;
+    }
     .player .lastName {
         top: 70px;
         font-size: 18px;
         font-weight: 700;
     }
-
     .player .firstName {
         top: 40px;
         left: 76px;
         font-size: 14px;
         font-weight: 700;
     }
-
     .player .playerNumber {
         margin-right: 22px;
         margin-top: -40px;
         font-size: 32px;
     }
-
     .player .playerImg {
         width: 100px;
         height: 140px;
@@ -137,25 +111,29 @@
 }
 
 @media (max-width: 1680px) {
+    .Formation__line {
+        margin: 0.5rem 0.5rem 0.1rem 0rem;
+    }
+    .player {
+        height: 180px;
+        width: 140px;
+    }
     .player .lastName {
         top: 65px;
         font-size: 13px;
         font-weight: 700;
     }
-
     .player .firstName {
         top: 49px;
         left: 67px;
         font-size: 10px;
         font-weight: 700;
     }
-
     .player .playerNumber {
         margin-right: 20px;
         margin-top: -38px;
         font-size: 26px;
     }
-
     .player .playerImg {
         width: 90px;
         height: 110px;
@@ -165,83 +143,73 @@
 }
 
 @media (max-width: 768px) {
+    .Formation__line {
+        margin: 0.1rem 0.1rem 0.1rem 0rem;
+    }
+    .player {
+        height: 140px;
+        width: 100px;
+    }
     .player .lastName {
         top: 45px;
         font-size: 9px;
         font-weight: 700;
     }
-
     .player .firstName {
         top: 32px;
         left: 48px;
         font-size: 8px;
         font-weight: 700;
     }
-
     .player .playerNumber {
         margin-right: 14px;
         margin-top: -34px;
         font-size: 19px;
     }
-
     .player .playerImg {
         width: 62px;
         height: 80px;
         border-radius: 200%;
         margin-top: -15px;
     }
-    
+    .Formation__line--vertical {
+        gap: 0.2rem;
+        transform: scale(0.9);
+    }
 }
 
 @media (max-width: 560px) {
+    .Formation__line {
+        margin: 0.1rem 0.1rem 0.1rem 0rem;
+    }
+    .player {
+        height: 120px;
+        width: 80px;
+    }
     .player .lastName {
         top: 37px;
         font-size: 8px;
         font-weight: 700;
     }
-
     .player .firstName {
         top: 24px;
         left: 41px;
         font-size: 7px;
         font-weight: 700;
     }
-
     .player .playerNumber {
         margin-right: 9px;
         margin-top: -30px;
         font-size: 17px;
     }
-
     .player .playerImg {
         width: 45px;
         height: 60px;
         border-radius: 200%;
         margin-top: -20px;
     }
-}
-
-
-.Formation__line--vertical {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 0.5rem; /* Adjust gap as needed */
-    justify-content: center;
-    align-items: center;
-    margin: 0rem 0; /* Adjust margins as needed */
-    width: 100%;
-}
-
-@media (max-width: 768px) {
     .Formation__line--vertical {
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
-        gap: 0.25rem; /* Reduce gap for smaller screens */
-    }
-}
-
-@media (max-width: 560px) {
-    .Formation__line--vertical {
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
-        gap: 0.1rem; /* Further reduce gap for smallest screens */
+        gap: 0.1rem;
+        transform: scale(0.75);
     }
 }
