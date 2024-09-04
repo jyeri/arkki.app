@@ -2,7 +2,7 @@
 .about__container {
     max-width: 1500px;
     margin: 1rem auto;
-    width: 98%;
+    width: 100%;
     aspect-ratio: 5 / 3;
 }
 
@@ -227,6 +227,172 @@ div.arrow--right {
 
 
 /**** MISSION PARAGRAPHS ****/
+.about__mission {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden !important;
+}
 
+.about__mission-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0rem 0rem;
+  padding: 0.1rem;
+  width: 100%;
+}
+
+.about__mission-header {
+  font-family: "Major Mono Display", monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.about__mission-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 0rem 0rem;
+    padding: 0.1rem;
+    width: 100%;
+    overflow-x: hidden !important;
+}
+
+.about__mission-paragraph {
+    font-family: 'Roboto Mono', sans-serif;
+    max-width: 80%;
+    text-align: center;
+}
+
+.about__mission-image {
+    z-index: -1;
+    position: absolute;
+    border-radius: 0%;
+    overflow: hidden;
+    @media (max-width: 768px) {
+        display: none; 
+    }
+    img {
+      height: 40%;
+      width: 40%;
+      border-radius: 5%;
+    }
+}
+
+/**** JOURNEY PARAGRAPHS ****/
+.about__journey-header {
+  font-family: "Major Mono Display", monospace;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.about__journey-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0rem 0rem;
+  padding: 0.1rem;
+  width: 100%;
+}
+
+.about__journey-paragraph {
+  font-family: 'Roboto Mono', sans-serif;
+  max-width: 80%;
+  text-align: center;
+}
+
+.about__journey-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0rem 0rem;
+  padding: 0.1rem;
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+.about__journey-paragraph {
+  font-family: 'Roboto Mono', sans-serif;
+  max-width: 80%;
+  text-align: center;
+}
+
+.about__journey-image {
+  z-index: -1;
+  position: absolute;
+  border-radius: 0%;
+  overflow: hidden;
+  @media (max-width: 768px) {
+      display: none; 
+  }
+  img {
+    height: 40%;
+    width: 40%;
+    border-radius: 5%;
+  }
+}
 
 /**** JOIN US PARAGRAPHS ****/
+
+.about__join-header {
+  font-family: "Major Mono Display", monospace;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.about__join-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0rem 0rem;
+  padding: 0.1rem;
+  width: 100%;
+}
+
+.about__join-paragraph {
+  font-family: 'Roboto Mono', sans-serif;
+  max-width: 100%;
+  text-align: center;
+}
+
+.about__join-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0rem 0rem;
+  padding: 0.1rem;
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+.about__join-paragraph {
+  font-family: 'Roboto Mono', sans-serif;
+  max-width: 80%;
+  text-align: center;
+}
+.about__join-image {
+  z-index: -1;
+  position: absolute;
+  border-radius: 0%;
+  overflow: hidden;
+  @media (max-width: 768px) {
+      display: none; 
+  }
+  img {
+    height: 40%;
+    width: 40%;
+    border-radius: 5%;
+  }
+}

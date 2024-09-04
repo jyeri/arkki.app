@@ -27,13 +27,17 @@
     height: 4rem;
     width: 4rem;
     background-color: none;
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 0rem 1rem 0rem 5rem;
     filter: invert(10%) sepia(73%) saturate(5227%) hue-rotate(273deg) brightness(99%) contrast(106%);
 }
 
 .HeaderContainer__dropdown {
     position: relative;
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 0rem 5rem 0rem 1rem;
+
+    @media (max-width: 768px) {
+        margin: 0rem 1rem 0rem 1rem;   
+    }
 }
 
 .HeaderContainer__dropdown-button {
@@ -49,6 +53,9 @@
     border-radius: 0.5rem;
     transition: all 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    @media (max-width: 768px) {
+        margin: 0rem 1rem 0rem 1rem;   
+    }
 }
 
 .HeaderContainer__dropdown-menu {

@@ -23,7 +23,9 @@ export const Header = ({ onMenuItemClick }: HeaderProps) => {
 
     return (
         <div className="HeaderContainer">
-            <img src={whitelogo} alt={logo} className="HeaderContainer__logo" />
+            <a href="/">
+                <img src={whitelogo} alt={logo} className="HeaderContainer__logo" />
+            </a>
             <h1 className="HeaderContainer__text">Arkki jalkapallo</h1>
             <div className="HeaderContainer__dropdown">
                 <button className="HeaderContainer__dropdown-button" onClick={toggleDropdown}>

@@ -28,6 +28,19 @@ import Joukkuekuva3 from './arkki_img/team/Joukkue_lippu.png';
 import Joukkuekuva4 from './arkki_img/team/joukkue_penkki.png';
 import Joukkuekuva5 from './arkki_img/team/Joukkue_kiitos.png';
 
+import mission from './arkki_img/about/mission.png';
+import journey from './arkki_img/about/journey.png';
+import join from './arkki_img/about/join.png';
+
+import hurma from './arkki_img/sponsors/hurma.png';
+import omasauna from './arkki_img/sponsors/omasauna.png';
+import eeturajala from './arkki_img/sponsors/eeturajala.png';
+import fillaripiste from './arkki_img/sponsors/fillaripiste.png';
+import Grotex from './arkki_img/sponsors/Grotex.png';
+import huoletonjoonas from './arkki_img/sponsors/huoletonjoonas.png';
+import juliuskonttinen from './arkki_img/sponsors/JuliusKonttinenVisuals.png';
+import nikisoukkio from './arkki_img/sponsors/nikisoukkio.png';
+
 export const playerImages: { [key: string]: string } = {
     Jyri,
     Martti,
@@ -60,5 +73,22 @@ export const TeamImages = [
     { url: Joukkuekuva3, alt: "Team flag" },
     { url: Joukkuekuva4, alt: "Team bench" },
     { url: Joukkuekuva5, alt: "Team thanks" },
+];
+
+export const AboutImages = [
+    { url: mission, alt: "Arkki mission" },
+    { url: journey, alt: "Arkki journey" },
+    { url: join, alt: "Arkki join" },
+];
+
+export const SponsorImages = [
+    { url: hurma, alt: "Hurma" },
+    { url: omasauna, alt: "Oma Sauna" },
+    { url: eeturajala, alt: "Eetu Rajala" },
+    { url: fillaripiste, alt: "Fillaripiste" },
+    { url: Grotex, alt: "Grotex" },
+    { url: huoletonjoonas, alt: "Huoleton Joonas" },
+    { url: juliuskonttinen, alt: "Julius Konttinen Visuals" },
+    { url: nikisoukkio, alt: "Niki Soukkio" },
 ];
 
