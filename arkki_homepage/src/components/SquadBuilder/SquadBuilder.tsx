@@ -28,8 +28,8 @@ export const SquadBuilder = () => {
     } = useSquadBuilder();
 
     return (
-        <div className="SBContainer">
-            <div className="SBContainer__dropdown">
+        <div className="container">
+            <div className="formation-drdwn">
                 <button className="SBContainer__dropdown-button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                     {selectedOption}
                 </button>
@@ -47,36 +47,30 @@ export const SquadBuilder = () => {
                     </ul>
                 )}
             </div>
-            <div className="SBContainer__pitch">
+            <div className="grid">
                 <DragDropContext onDragEnd={onDragEnd}>
-                    <div className="SBContainer__pitch-attack">
-                        <Attack attack={attack} />
+                    <div className="subs">
+                        <Substitutes substitutes={filteredSubstitutes} />
                     </div>
-                    <div className="SBContainer__pitch-mid">
-                        <Mid mid={mid} />
-                    </div>
-                    <div className="SBContainer__pitch-def">
-                        <Def def={def} />
-                    </div>
-                    <div className="SBContainer__pitch-gk">
-                        <GK gk={gk} />
-                    </div>
-                    <div className="SBContainer__sides">
-                        <div className={`SBContainer__substitutes ${isSubstitutesOpen ? 'open' : ''}`}>
-                            <Substitutes substitutes={filteredSubstitutes} />
+                    <div className="starting">
+                        <div className="SBContainer__pitch-attack">
+                            <Attack attack={attack} />
                         </div>
-                        <div className={`SBContainer__reserves ${isReservesOpen ? 'open' : ''}`}>
-                            <Reserves reserves={filteredReserves} />
+                        <div className="SBContainer__pitch-mid">
+                            <Mid mid={mid} />
                         </div>
+                        <div className="SBContainer__pitch-def">
+                            <Def def={def} />
+                        </div>
+                        <div className="SBContainer__pitch-gk">
+                            <GK gk={gk} />
+                        </div>
+                    </div>
+                    <div className="reserves">
+                        <Reserves reserves={filteredReserves} />
                     </div>
                 </DragDropContext>
             </div>
-            <button className="SBContainer__toggle-button left" onClick={() => setIsSubstitutesOpen(!isSubstitutesOpen)}>
-                {isSubstitutesOpen ? 'CLOSE' : 'SUBS'}
-            </button>
-            <button className="SBContainer__toggle-button right" onClick={() => setIsReservesOpen(!isReservesOpen)}>
-                {isReservesOpen ? 'CLOSE' : 'RESERVE'}
-            </button>
         </div>
     );
 };
