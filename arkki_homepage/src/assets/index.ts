@@ -41,6 +41,11 @@ import huoletonjoonas from './arkki_img/sponsors/huoletonjoonas.png';
 import juliuskonttinen from './arkki_img/sponsors/JuliusKonttinenVisuals.png';
 import nikisoukkio from './arkki_img/sponsors/nikisoukkio.png';
 
+import MarttiBoard from './arkki-logo.png';
+import JyriBoard from './arkki-logo.png';
+import NikiBoard from './arkki-logo.png';
+import RiksuBoard from './arkki-logo.png';
+
 export const playerImages: { [key: string]: string } = {
     Jyri,
     Martti,
@@ -92,3 +97,9 @@ export const SponsorImages = [
     { url: nikisoukkio, alt: "Niki Soukkio" },
 ];
 
+export const BoardImages = [
+    { url: MarttiBoard, alt: "M-doge, The Coach" },
+    { url: JyriBoard, alt: "The man, The myth, The legend" },
+    { url: NikiBoard, alt: "Daddy, can we buy that?" },
+    { url: RiksuBoard, alt: "R. Carlos lookin like The Secretary" },
+];

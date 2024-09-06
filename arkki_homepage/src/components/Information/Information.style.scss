@@ -1,0 +1,102 @@
+.information__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden !important;
+    
+}
+
+.info__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    padding: 0rem;
+    margin-top: 2rem;
+    width: 60%;
+    border: 1px solid black;
+
+    &:nth-child(odd) {
+        margin-left: 0; /* Align odd containers to the left */
+        margin-right: auto;
+    }
+
+    &:nth-child(even) {
+        margin-left: auto; /* Align even containers to the right */
+        margin-right: 0;
+    }
+}
+
+.info__name {
+    font-family: "Major Mono Display", monospace;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 0;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+.info__title {
+    font-family: monospace;
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-align: center;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+}
+
+.info__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 0rem 0rem;
+    padding: 0.1rem;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      gap: 0.5rem 0rem 0rem;
+    }
+}
+
+.info__paragraph {
+    font-family: 'Roboto Mono', sans-serif;
+    max-width: 80%;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 0.75rem;
+    }
+}
+
+.info__image {
+    z-index: -1;
+    position: absolute;
+    border-radius: 0%;
+    overflow: hidden;
+    @media (max-width: 768px) {
+        display: none; 
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 5%;
+    }
+}
+
+.info__instructions {
+    font-family: 'Roboto Mono', sans-serif;
+    max-width: 80%;
+    text-align: center;
+    font-size: 0.75rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.5rem;
+    }
+}

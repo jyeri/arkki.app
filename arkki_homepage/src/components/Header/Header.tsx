@@ -39,6 +39,9 @@ export const Header = ({ onMenuItemClick }: HeaderProps) => {
                         <li className="HeaderContainer__dropdown-item" onClick={() => handleMenuItemClick("About Us")}>
                             About Us
                         </li>
+                        <li className="HeaderContainer__dropdown-item" onClick={() => handleMenuItemClick("INFO")}>
+                            Information
+                        </li>
                     </ul>
                 )}
             </div>
