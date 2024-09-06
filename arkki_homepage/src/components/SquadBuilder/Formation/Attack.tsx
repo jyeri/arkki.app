@@ -12,7 +12,7 @@ export const Attack: React.FC<AttackProps> = ({ attack = [] }) => {
   return (
     <div className='Formation__line'>
       {attack.map((player, index) => (
-        <div className='slot'>
+        <div className='slot' key={index}>
           <Droppable key={player.number} droppableId={`attack-${index}`}>
             {(provided: DroppableProvided) => (
               <div ref={provided.innerRef} {...provided.droppableProps} className='droppable-slot' style={{margin: 0, padding: 0}}>

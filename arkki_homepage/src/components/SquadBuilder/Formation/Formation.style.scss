@@ -12,6 +12,7 @@
     justify-content: space-evenly;
     align-items: center;
     margin: 0px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
@@ -25,24 +26,47 @@
     flex-wrap: nowrap;
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    justify-items: center;
     position: relative;
     background-image: url(../../../assets/card.png);
     background-size: contain;
     background-repeat: no-repeat;
-    height: 180px;
-    width: 130px;
-    padding: 20px;
+    padding: 0px;
     margin: 0px;
+    @media screen and (orientation: landscape) {
+        height: 180px;
+        width: 130px; 
+    }
+    @media screen and (orientation: portrait) {
+        height: 240px;
+        width: 180px; 
+    }
 }
 
 .playerNumber {
-    position: relative;
+    position: absolute;
     display: block;
     align-self: flex-end;
     font-family: 'Righteous', sans-serif;
-    font-size: 25px;
     font-weight: 700;
     color: #965300;
+    top: 20px;
+    font-size: 25px;
+    right: 20px;
+
+    @media screen and (orientation: portrait) {
+        font-size: 35px;
+        top: 25px;
+        right: 35px;
+    }
+
+    @media screen and (orientation: landscape) {
+        font-size: 26px;
+        top: 20px;
+        right: 20px;
+    }
+
 }
 
 
@@ -51,9 +75,15 @@
     position: relative;
     filter: grayscale(100%);
     border-radius: 50%;
-    margin-top: -25px;
     height: 100px;
+    margin-top: 20px;
     width: 80px;
+
+    @media screen and (orientation: landscape) {
+        height: 110px;
+        width: 85px;
+        margin-top: 20px;
+    }
 }
 
 .lastName {
@@ -62,7 +92,12 @@
     font-family: 'Righteous', sans-serif;
     color: #965300;
     font-size: 14px;
-    margin-top: -8px;
+    margin-top: -1px;
+
+    @media screen and (orientation: landscape) {
+        font-size: 14px;
+        margin-top: -12px;
+    }
 }
 
 .firstName {
@@ -74,7 +109,7 @@
     color: #965300;
     font-size: 10px;
     margin-top: -15px;
-    margin-left: 40px;
+    margin-left: 60px;
 }
 
 .Formation__line--vertical {
@@ -99,138 +134,240 @@
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    @media screen and (orientation: landscape) {
+        display: grid;
+        position: relative;
+        left: 0;
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 0rem;
+        margin: 0rem 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
 }
 
-@media (max-width: 1201px) {
+@media (max-width: 1201px) and (orientation: portrait) {
     .player {
-        height: 170px;
-        width: 120px;
+        height: 120px;
+        width: 75px;
+        padding: 15px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 20px;
+        margin-top: -5px;
+        right: 15px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 80px;
+        width: 65px;
+    }
+    .lastName {
+        font-size: 12px;
+        margin-top: -1px;
+    }
+    .firstName {
+        font-size: 10px;
+        margin-top: -13px;
+        margin-left: 35px;
+    }
+}
+
+@media (max-width: 1201px) and (orientation: landscape) {
+    .player {
+        height: 100px;
+        width: 60px;
         padding: 20px;
         margin: 0px;
     }
     .playerNumber {
         font-size: 20px;
+        top: 15px;
+        right: 15px;
     }
     .playerImg {
-        margin-top: -25px;
-        height: 100px;
-        width: 80px;
-    }
-    .lastName {
-        font-size: 13px;
-        margin-top: -8px;
-    }
-    .firstName {
-        font-size: 9px;
-        margin-top: -15px;
-        margin-left: 35px;
-    }
-}
-
-@media (max-width: 1025px) {
-    .player {
-        height: 150px;
-        width: 110px;
-        padding: 18px;
-        margin: 0px;
-    }
-    .playerNumber {
-        font-size: 20px;
-    }
-    .playerImg {
-        margin-top: -25px;
+        margin-top: -10px;
         height: 90px;
         width: 70px;
     }
     .lastName {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: -10px;
     }
     .firstName {
         font-size: 9px;
-        margin-top: -13px;
-        margin-left: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .player {
-        height: 120px;
-        width: 90px;
-        padding: 16px;
-        margin: 0px;
-    }
-    .playerNumber {
-        margin-top: -4px;
-        font-size: 18px;
-    }
-    .playerImg {
-        margin-top: -20px;
-        height: 70px;
-        width: 55px;
-    }
-    .lastName {
-        font-size: 9px;
-        margin-top: -5px;
-    }
-    .firstName {
-        font-size: 7px;
-        margin-top: -10px;
+        margin-top: -14px;
         margin-left: 25px;
     }
 }
 
-@media (max-width: 670px) {
+@media (max-width: 1025px) and (orientation: portrait) {
     .player {
-        height: 90px;
-        width: 70px;
-        padding: 14px;
+        height: 120px;
+        width: 75px;
+        padding: 10px;
         margin: 0px;
     }
     .playerNumber {
-        margin-top: -4px;
-        font-size: 14px;
+        font-size: 18px;
+        margin-top: -10px;
+        right: 15px;
     }
     .playerImg {
-        margin-top: -15px;
-        height: 50px;
-        width: 40px;
+        margin-top: 5px;
+        height: 80px;
+        width: 65px;
     }
     .lastName {
-        font-size: 6px;
-        margin-top: -4px;
+        font-size: 11px;
+        margin-top: -6px;
     }
     .firstName {
-        font-size: 5px;
-        margin-top: -6px;
-        margin-left: 15px;
+        font-size: 9px;
+        margin-top: -13px;
+        margin-left: 35px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1025px) and (orientation: landscape) {
     .player {
         height: 80px;
-        width: 64px;
-        padding: 14px;
+        width: 45px;
+        padding: 20px;
         margin: 0px;
     }
     .playerNumber {
-        margin-top: -5px;
-        font-size: 12px;
+        font-size: 18px;
+        top: 12px;
+        right: 12px;
     }
     .playerImg {
-        margin-top: -15px;
-        margin-left: -5px;
-        height: 45px;
-        width: 35px;
+        margin-top: -7px;
+        height: 75px;
+        width: 60px;
     }
     .lastName {
-        font-size: 5px;
-        margin-top: -1px;
+        font-size: 10px;
+        margin-top: -10px;
     }
     .firstName {
-        font-size: 4px;
+        font-size: 8px;
+        margin-top: -10px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .player {
+        height: 100px;
+        width: 65px;
+        padding: 10px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 16px;
+        margin-top: -12px;
+        right: 12px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 70px;
+        width: 60px;
+    }
+    .lastName {
+        font-size: 10px;
         margin-top: -6px;
-        margin-left: 11px;
+    }
+    .firstName {
+        font-size: 7px;
+        margin-top: -10px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .player {
+        height: 60px;
+        width: 40px;
+        padding: 15px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 14px;
+        top: 10px;
+        right: 15px;
+    }
+    .playerImg {
+        margin-top: -5px;
+        height: 60px;
+        width: 43px;
+    }
+    .lastName {
+        font-size: 7px;
+        margin-top: -10px;
+    }
+    .firstName {
+        font-size: 6px;
+        margin-top: -5px;
+        margin-left: 14px;
+    }
+}
+
+
+@media (max-width: 670px) and (orientation: portrait) {
+    .player {
+        height: 90px;
+        width: 60px;
+        padding: 5px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 12px;
+        margin-top: -15px;
+        right: 10px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 60px;
+        width: 45px;
+    }
+    .lastName {
+        font-size: 8px;
+        margin-top: -5px;
+    }
+    .firstName {
+        font-size: 5px;
+        margin-top: -7px;
+        margin-left: 28px;
+    }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+    .player {
+        height: 90px;
+        width: 60px;
+        padding: 0px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 12px;
+        margin-top: -15px;
+        right: 10px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 60px;
+        width: 45px;
+    }
+    .lastName {
+        font-size: 8px;
+        margin-top: -5px;
+    }
+    .firstName {
+        font-size: 5px;
+        margin-top: -7px;
+        margin-left: 28px;
     }
 }

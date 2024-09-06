@@ -13,7 +13,7 @@ export const Mid: React.FC<MidProps> = ({ mid = [] }) => {
     return (
         <div className='Formation__line'>
             {mid.map((player, index) => (
-                <div className='slot'>
+                <div className='slot' key={index}>
                 <Droppable key={player.number} droppableId={`mid-${index}`}>
                     {(provided: DroppableProvided) => (
                         <div ref={provided.innerRef} {...provided.droppableProps} className='droppable-slot'>

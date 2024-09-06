@@ -7,9 +7,9 @@
 }
 
 /**** IMAGE GALLERY ****/
-*,
-*::before,
-*::after {
+.about__container,
+.about__container::before,
+.about__container::after {
   box-sizing: border-box;
 }
 
