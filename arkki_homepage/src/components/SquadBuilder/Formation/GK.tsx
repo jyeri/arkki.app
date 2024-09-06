@@ -13,6 +13,7 @@ export const GK: React.FC<GKProps> = ({ gk = [] }) => {
     return (
         <div className='Formation__line'>
             {gk.map((player, index) => (
+                <div className='slot'>
                 <Droppable key={player.number} droppableId={`gk`}>
                     {(provided: DroppableProvided) => (
                         <div ref={provided.innerRef} {...provided.droppableProps} className='droppable-slot'>
@@ -34,6 +35,7 @@ export const GK: React.FC<GKProps> = ({ gk = [] }) => {
                         </div>
                     )}
                 </Droppable>
+                </div>
             ))}
         </div>
     );

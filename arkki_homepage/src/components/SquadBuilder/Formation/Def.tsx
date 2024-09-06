@@ -13,6 +13,7 @@ export const Def: React.FC<DefProps> = ({ def = [] }) => {
     return (
         <div className='Formation__line'>
             {def.map((player, index) => (
+                <div className='slot'>
                 <Droppable key={player.number} droppableId={`def-${index}`}>
                     {(provided: DroppableProvided) => (
                         <div ref={provided.innerRef} {...provided.droppableProps} className='droppable-slot'>
@@ -34,6 +35,7 @@ export const Def: React.FC<DefProps> = ({ def = [] }) => {
                         </div>
                     )}
                 </Droppable>
+                </div>
             ))}
         </div>
     );

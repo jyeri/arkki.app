@@ -3,47 +3,46 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    padding: 1rem;
-    background-color: #e2e2e2;
-    padding: 0;
     margin: 0;
 }
 
 .formation-drdwn {
     display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     height: 40px;
-    background-color: #efefef;
-    border: 1px solid #A2A2A2;
-    align-content: center;
-    justify-content: center;
+    border-bottom: 1px solid #676767;
 }
 
 .grid {
     display: grid;
     width: 100%;
-    height: 80%;
+    height: 100%;
     grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1.5fr;
+    overflow: hidden;
+    margin: 0;
 }
 
 .subs {
     grid-area: 1 / 1 / 5 / 2;
     order: 1;
-    display: flex;
+    display: grid;
     width: 100%;
     height: 100%;
-    border: 2px solid #FF0000;
+    margin: 0;
+    border-right: 1px solid #676767;
 }
 
 .starting {
-    grid-area: 1 / 2 / 5 / 6;
-    order: 3;
+    grid-area: 1 / 2 / 5 / 7;
+    order: 2;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 2px solid #80FF00;
+    margin: 0;
 }
 
 .reserves {
@@ -51,9 +50,11 @@
     order: 3;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    border: 2px solid #0066FF;
+    border-top: 1px solid #676767;
+    margin: 0;
 }
 
 // *** OLD *** //
@@ -91,14 +92,15 @@
     font-family: "Roboto";
     padding: 0.5rem 1rem;
     cursor: pointer;
-    width: 100%;
-    text-align: left;
+    width: 10%;
+    text-align: center;
 }
 
 .SBContainer__dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     background-color: rgb(255, 255, 255);
     border: #5f0c9e 1px solid;
     border-radius: 5px;
@@ -106,7 +108,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%;
+    width: 10%;
     z-index: 1000;
 }
 
@@ -123,79 +125,4 @@
 
 .SBContainer__dropdown-item:hover {
     background-color: #f0f0f0;
-}
-
-.SBContainer__toggle-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #5f0c9e;
-    border: #5f0c9e 1px solid;
-    padding: 0.5rem 0.25rem;
-    height: 160px;
-    background-color: transparent;
-
-    cursor: pointer;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    writing-mode: vertical-rl; /* Rotate text */
-    text-orientation: upright; /* Rotate text */
-}
-
-.SBContainer__toggle-button.left {
-    border-radius: 0px 5px 5px 0px;
-    left: 0;
-}
-
-.SBContainer__toggle-button.right {
-    border-radius: 5px 0px 0px 5px;
-    right: 0;
-}
-
-.SBContainer__sides {
-    display: flex;
-    justify-content: space-between;
-    width: 100vw; /* Full viewport width */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none; /* Allow pitch interactions */
-}
-
-.SBContainer__substitutes,
-.SBContainer__reserves {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 20vw; /* Adjust width as needed */
-    pointer-events: all; /* Enable interactions */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.SBContainer__substitutes {
-    justify-content: flex-start;
-    opacity: 0;
-    transition: 0.3s ease-in-out;
-}
-
-.SBContainer__substitutes.open {
-    opacity: 1;
-}
-
-.SBContainer__reserves {
-    justify-content: flex-end;
-    opacity: 0;
-    transition: 0.3s ease-in-out;
-    right: 0;
-}
-
-.SBContainer__reserves.open {
-    opacity: 1;
 }
