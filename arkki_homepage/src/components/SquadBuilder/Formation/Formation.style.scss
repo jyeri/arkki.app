@@ -39,8 +39,9 @@
         width: 130px; 
     }
     @media screen and (orientation: portrait) {
-        height: 240px;
-        width: 180px; 
+        height: 160px;
+        width: 100px; 
+        padding: 20px;
     }
 }
 
@@ -51,14 +52,11 @@
     font-family: 'Righteous', sans-serif;
     font-weight: 700;
     color: #965300;
-    top: 20px;
-    font-size: 25px;
-    right: 20px;
 
     @media screen and (orientation: portrait) {
-        font-size: 35px;
-        top: 25px;
-        right: 35px;
+        font-size: 28px;
+        top: 20px;
+        right: 20px;
     }
 
     @media screen and (orientation: landscape) {
@@ -75,9 +73,12 @@
     position: relative;
     filter: grayscale(100%);
     border-radius: 50%;
-    height: 100px;
-    margin-top: 20px;
-    width: 80px;
+
+    @media screen and (orientation: portrait) {
+        height: 130px;
+        width: 100px;
+        margin-top: 0px;
+    }
 
     @media screen and (orientation: landscape) {
         height: 110px;
@@ -91,8 +92,11 @@
     position: relative;
     font-family: 'Righteous', sans-serif;
     color: #965300;
-    font-size: 14px;
-    margin-top: -1px;
+
+    @media screen and (orientation: portrait) {
+        font-size: 15px;
+        margin-top: -18px;
+    }
 
     @media screen and (orientation: landscape) {
         font-size: 14px;
@@ -110,6 +114,12 @@
     font-size: 10px;
     margin-top: -15px;
     margin-left: 60px;
+
+    @media screen and (orientation: portrait) {
+        font-size: 12px;
+        margin-top: -16px;
+        margin-left: 45px;
+    }
 }
 
 .Formation__line--vertical {
