@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import './Information.style.scss';
 import { useRef } from "react";
-import instagram from "../../assets/instagram.svg";
 
 type InformationProps = {
     images: {

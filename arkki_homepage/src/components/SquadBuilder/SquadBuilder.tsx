@@ -17,14 +17,10 @@ export const SquadBuilder = () => {
         filteredSubstitutes,
         filteredReserves,
         selectedOption,
-        isSubstitutesOpen,
-        isReservesOpen,
         isDropdownOpen,
         setIsDropdownOpen,
         onDragEnd,
-        handleDropdownClick,
-        setIsSubstitutesOpen,
-        setIsReservesOpen
+        handleDropdownClick
     } = useSquadBuilder();
 
     return (

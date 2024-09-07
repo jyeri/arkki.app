@@ -1,6 +1,6 @@
 import { motion} from "framer-motion";
 import './AboutUs.style.scss';
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 type AboutProps = {
     images: {

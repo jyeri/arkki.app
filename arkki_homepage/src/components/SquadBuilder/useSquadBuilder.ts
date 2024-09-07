@@ -22,8 +22,6 @@ export const useSquadBuilder = () => {
     const [filteredReserves, setFilteredReserves] = useState<Player[]>([]);
     const [selectedOption, setSelectedOption] = useState('Select Formation');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isSubstitutesOpen, setIsSubstitutesOpen] = useState(false);
-    const [isReservesOpen, setIsReservesOpen] = useState(false);
 
     useEffect(() => {
         initializePlayers();
@@ -120,13 +118,9 @@ export const useSquadBuilder = () => {
         filteredSubstitutes,
         filteredReserves,
         selectedOption,
-        isSubstitutesOpen,
-        isReservesOpen,
         isDropdownOpen,
         setIsDropdownOpen,
         onDragEnd,
-        handleDropdownClick,
-        setIsSubstitutesOpen,
-        setIsReservesOpen
+        handleDropdownClick
     };
 };

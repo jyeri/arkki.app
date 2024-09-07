@@ -1,6 +1,6 @@
 
 import { SponsorImages } from '../../assets/index';
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import './Footer.style.scss';
 
 export const Footer = () => {
