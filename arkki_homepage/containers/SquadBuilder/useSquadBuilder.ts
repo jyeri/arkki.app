@@ -1,5 +1,5 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { fetchPlayers } from '../../queries/fetchPlayers';
+import { fetchPlayers } from '../../Queries/fetchPlayers';
 import { Player, Formation, PlayerListKey } from '../../interfaces/types';
 import { DropResult } from '@hello-pangea/dnd';
 
