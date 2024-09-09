@@ -9,7 +9,6 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
     'react/jsx-no-target-blank': 'off',
@@ -18,4 +17,12 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  settings: {
+    react: { version: 'detect' },
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
