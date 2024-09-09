@@ -1,0 +1,534 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    height: 100vh; /* Changed to 100vh */
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.formation-drdwn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #676767;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+    overflow-x: hidden;
+    margin: 0;
+
+    @media screen and (orientation: landscape) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+.subs {
+    grid-area: 1 / 1 / 5 / 2;
+    order: 1;
+    display: grid;
+    grid-template: repeat(1fr, 2);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-right: 1px solid #676767;
+    border-bottom: 1px solid #676767;
+
+    @media screen and (orientation: landscape) {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+}
+
+.starting {
+    grid-area: 1 / 2 / 5 / 6;
+    order: 2;
+    background-image: url(../../assets/pitch-bg2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-bottom: 1px solid #676767;
+    @media screen and (orientation: landscape) {
+        grid-area: 1 / 2 / 2 / 5;
+
+        @media screen and (min-width: 1280px) {
+            background-image: none;
+            
+        }
+    }
+}
+
+.reserves {
+    grid-area: 5 / 1 / 7 / 7;
+    order: 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #676767;
+    margin: 0;
+    border-bottom: 1px solid #676767;
+
+    @media screen and (orientation: landscape) {
+        grid-area: 1 / 5 / 2 / 6;
+        display: grid;
+        grid-template: repeat(1fr, 2);
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border-left: 1px solid #676767;
+    }
+}
+
+// *** OLD *** //
+
+.SBContainer__dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.SBContainer__dropdown-button {
+    color: #5f0c9e;
+    background-color: rgb(255, 255, 255);
+    border: #5f0c9e 1px solid;
+    border-radius: 5px;
+    font-style: thin;
+    font-weight: 300;
+    font-family: "Roboto";
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+}
+
+.SBContainer__dropdown-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: #5f0c9e 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    z-index: 1000;
+}
+
+.SBContainer__dropdown-item {
+    color: #5f0c9e;
+    background-color: rgb(255, 255, 255);
+    font-style: thin;
+    font-weight: 300;
+    font-family: "Roboto";
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.SBContainer__dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+// *** FORMATION SPECIFIC *** //
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Righteous&family=Teko:wght@300..700&display=swap');
+
+.righteous-regular {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.Formation__line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.slot {
+    border: 1px dotted rgb(98, 0, 118, 0.5);
+    border-radius: 20px;
+}
+
+.player {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    background-image: url(../../../assets/card.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 0px;
+    margin: 0px;
+    @media screen and (orientation: landscape) {
+        height: 180px;
+        width: 130px; 
+    }
+    @media screen and (orientation: portrait) {
+        height: 160px;
+        width: 100px; 
+        padding: 20px;
+    }
+}
+
+.playerNumber {
+    position: absolute;
+    display: block;
+    align-self: flex-end;
+    font-family: 'Righteous', sans-serif;
+    font-weight: 700;
+    color: #965300;
+
+    @media screen and (orientation: portrait) {
+        font-size: 28px;
+        top: 20px;
+        right: 20px;
+    }
+
+    @media screen and (orientation: landscape) {
+        font-size: 26px;
+        top: 20px;
+        right: 20px;
+    }
+
+}
+
+
+.playerImg {
+    display: block;
+    position: relative;
+    filter: grayscale(100%);
+    border-radius: 50%;
+
+    @media screen and (orientation: portrait) {
+        height: 130px;
+        width: 100px;
+        margin-top: 0px;
+    }
+
+    @media screen and (orientation: landscape) {
+        height: 110px;
+        width: 85px;
+        margin-top: 20px;
+    }
+}
+
+.lastName {
+    display: block;
+    position: relative;
+    font-family: 'Righteous', sans-serif;
+    color: #965300;
+
+    @media screen and (orientation: portrait) {
+        font-size: 15px;
+        margin-top: -18px;
+    }
+
+    @media screen and (orientation: landscape) {
+        font-size: 14px;
+        margin-top: -12px;
+    }
+}
+
+.firstName {
+    position: relative;
+    display: block;
+    align-self: flex-start;
+    font-family: 'Righteous', sans-serif;
+    font-weight: 700;
+    color: #965300;
+    font-size: 10px;
+    margin-top: -15px;
+    margin-left: 60px;
+
+    @media screen and (orientation: portrait) {
+        font-size: 12px;
+        margin-top: -16px;
+        margin-left: 45px;
+    }
+}
+
+.Formation__line--vertical {
+    display: grid;
+    position: relative;
+    left: 0;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 0rem;
+    margin: 0rem 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.reserve__line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(6, 1fr);
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @media screen and (orientation: landscape) {
+        display: grid;
+        position: relative;
+        left: 0;
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 0rem;
+        margin: 0rem 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 1201px) and (orientation: portrait) {
+    .player {
+        height: 120px;
+        width: 75px;
+        padding: 15px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 20px;
+        margin-top: -5px;
+        right: 15px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 80px;
+        width: 65px;
+    }
+    .lastName {
+        font-size: 12px;
+        margin-top: -1px;
+    }
+    .firstName {
+        font-size: 10px;
+        margin-top: -13px;
+        margin-left: 35px;
+    }
+}
+
+@media (max-width: 1201px) and (orientation: landscape) {
+    .player {
+        height: 100px;
+        width: 60px;
+        padding: 20px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 20px;
+        top: 15px;
+        right: 15px;
+    }
+    .playerImg {
+        margin-top: -10px;
+        height: 90px;
+        width: 70px;
+    }
+    .lastName {
+        font-size: 13px;
+        margin-top: -10px;
+    }
+    .firstName {
+        font-size: 9px;
+        margin-top: -14px;
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 1025px) and (orientation: portrait) {
+    .player {
+        height: 120px;
+        width: 75px;
+        padding: 10px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 18px;
+        margin-top: -10px;
+        right: 15px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 80px;
+        width: 65px;
+    }
+    .lastName {
+        font-size: 11px;
+        margin-top: -6px;
+    }
+    .firstName {
+        font-size: 9px;
+        margin-top: -13px;
+        margin-left: 35px;
+    }
+}
+
+@media (max-width: 1025px) and (orientation: landscape) {
+    .player {
+        height: 80px;
+        width: 45px;
+        padding: 20px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 18px;
+        top: 12px;
+        right: 12px;
+    }
+    .playerImg {
+        margin-top: -7px;
+        height: 75px;
+        width: 60px;
+    }
+    .lastName {
+        font-size: 10px;
+        margin-top: -10px;
+    }
+    .firstName {
+        font-size: 8px;
+        margin-top: -10px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .player {
+        height: 100px;
+        width: 65px;
+        padding: 10px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 16px;
+        margin-top: -12px;
+        right: 12px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 70px;
+        width: 60px;
+    }
+    .lastName {
+        font-size: 10px;
+        margin-top: -6px;
+    }
+    .firstName {
+        font-size: 7px;
+        margin-top: -10px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .player {
+        height: 60px;
+        width: 40px;
+        padding: 15px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 14px;
+        top: 10px;
+        right: 15px;
+    }
+    .playerImg {
+        margin-top: -5px;
+        height: 60px;
+        width: 43px;
+    }
+    .lastName {
+        font-size: 7px;
+        margin-top: -10px;
+    }
+    .firstName {
+        font-size: 6px;
+        margin-top: -5px;
+        margin-left: 14px;
+    }
+}
+
+
+@media (max-width: 670px) and (orientation: portrait) {
+    .player {
+        height: 90px;
+        width: 60px;
+        padding: 5px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 12px;
+        margin-top: -15px;
+        right: 10px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 60px;
+        width: 45px;
+    }
+    .lastName {
+        font-size: 8px;
+        margin-top: -5px;
+    }
+    .firstName {
+        font-size: 5px;
+        margin-top: -7px;
+        margin-left: 28px;
+    }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+    .player {
+        height: 90px;
+        width: 60px;
+        padding: 0px;
+        margin: 0px;
+    }
+    .playerNumber {
+        font-size: 12px;
+        margin-top: -15px;
+        right: 10px;
+    }
+    .playerImg {
+        margin-top: 5px;
+        height: 60px;
+        width: 45px;
+    }
+    .lastName {
+        font-size: 8px;
+        margin-top: -5px;
+    }
+    .firstName {
+        font-size: 5px;
+        margin-top: -7px;
+        margin-left: 28px;
+    }
+}
