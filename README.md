@@ -74,6 +74,13 @@ The project follows a component-based architecture divided into three parts: use
   - Custom Hook (useImageGallery): Manages the state of the current image and controls for next/previous images.
   - Framer Motion: For smooth image transitions.
   - Presentational Component: ImageGalleryView.
+ 
+**Information (WIP)**
+- Purpose: Displays information details of board members and contact details for further inquiries.
+- Technologies:
+  - Custom Hook (useInformation): Handles any scroll-related logic.
+  - Presentational Component: InformationView.
+  - Framer Motion: Used to animate the sections to make it bit more lively.
 
 **Footer**
 - Purpose: Displays sponsors and relevant links at the bottom of the page.
