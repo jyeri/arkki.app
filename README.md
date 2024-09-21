@@ -10,6 +10,9 @@
 ![Node.js](https://img.shields.io/badge/node.js-v14.17.0-green)
 ![Vercel](https://img.shields.io/badge/vercel-deployed-black)
 
+## BEFORE PUBLISH
+The backend that is in this git folder is not yet deployed, so the Arkki fut will need to be configured via express
+
 ## Summary
 
 Arkki app is a web application designed to tell our story and give vital info for those who seek it. Its also for us to plan our squad dynamically, providing users with a fully interactive drag-and-drop interface to select and organize players. It is built using React, TypeScript, and various modern technologies to ensure high performance and clean code architecture.
